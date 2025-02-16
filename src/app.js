@@ -2,26 +2,32 @@ import express from 'express';
 import routes from './routes/index';
 import { resolve } from 'node:path';
 import cors from 'cors';
-
 import './database';
 
 class App {
     constructor() {
         this.app = express();
 
-        this.app.use(cors());
-        this.middlewwares();
+        this.configCors();
+        this.middlewares();
         this.routes();
     }
 
-    middlewwares() {
+    configCors() {
+        this.app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
+    }
+
+    middlewares() {
         this.app.use(express.json());
+
         this.app.use(
-            '/product-file', express.static(resolve(__dirname, '..', 'uploads'))
+            '/product-file', 
+            express.static(resolve(__dirname, '..', 'uploads', 'products'))
         );
 
         this.app.use(
-            '/category-file', express.static(resolve(__dirname, '..', 'uploads'))
+            '/category-file', 
+            express.static(resolve(__dirname, '..', 'uploads', 'categories'))
         );
     }
 
