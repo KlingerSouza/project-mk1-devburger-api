@@ -4,14 +4,13 @@
   "description": "DevBurger API.",
   "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "dev": "nodemon"
   },
   "author": {
     "name": "Klinger Souza",
     "url": "https://github.com/klingersouza"
   },
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
@@ -28,7 +27,9 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "globals": "^15.9.0",
     "nodemon": "^3.1.4",
-    "sequelize-cli": "^6.6.2"
+    "sequelize-cli": "^6.6.2",
+    "sucrase": "^3.35.0"
   }
 }
